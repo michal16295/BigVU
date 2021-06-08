@@ -1,0 +1,7 @@
+<div>
+    <div *ngIf="loading">
+        <div class="loading-inner">Loading...</div>
+    </div>
+    <canvas #canvas [style.visibility]="loading?'hidden':'visible'" class="canvas" [width]="width" [height]="height">
+    </canvas>
+</div>

@@ -1,0 +1,27 @@
+<div class="main">
+    <div class="nav">
+        <div *ngFor="let c of colors">
+            <a [ngClass]="{'active':c===color}" routerLink="/{{c}}">{{c}}</a>
+        </div>
+    </div>
+    <div class="text-panel">
+        <div>
+            Background:
+            <select [(ngModel)]="selectedImage">
+                <option *ngFor="let image of images|async"
+                    [value]="image.value">{{image.name}}</option>
+            </select>
+        </div>
+        <div>
+            Display Text:
+            <input #inputText [(ngModel)]="textValue" type="text" />
+        </div>
+        <div>
+            <label for="bonus">Bonus</label>
+            <input id="bonus" type="checkbox" [(ngModel)]="bonus">
+        </div>
+    </div>
+    <div class="canvas">
+        <app-canvas-view [bonus]="bonus" [background]="color" [text]="text" [selectedImage]="selectedImage"></app-canvas-view>
+    </div>
+</div>
